@@ -7,7 +7,7 @@ class Header extends React.Component {
   constructor() {
     super();
     this.state = {
-      nome: '',
+      user: '',
       loading: true,
     };
   }
@@ -18,31 +18,34 @@ class Header extends React.Component {
   }
 
   handleGetUser = async () => {
-    const user = await getUser();
+    const nome = await getUser();
     this.setState({
-      nome: user.user,
-      loading: false });
+      user: nome,
+      loading: false,
+    });
   };
 
   render() {
-    const { nome, loading } = this.state;
+    const { user, loading } = this.state;
     return (
-      <div data-testid="header-component" className="header">
-        {loading ? <Loading /> : (
-          <div>
-            <p
-              data-testid="header-user-name"
-              onChange={ this.handleGetUser }
-            >
-              {nome}
+      <header data-testid="header-component">
+        <div className="header">
+          {loading ? <Loading /> : (
+            <div>
+              <p
+                data-testid="header-user-name"
+                onChange={ this.handleGetUser }
+              >
+                {user.name}
 
-            </p>
-            <Link data-testid="link-to-search" to="/search" />
-            <Link data-testid="link-to-favorites" to="/favorites" />
-            <Link data-testid="link-to-profile" to="/profile" />
-          </div>
-        )}
-      </div>
+              </p>
+              <Link data-testid="link-to-search" to="/search" />
+              <Link data-testid="link-to-favorites" to="/favorites" />
+              <Link data-testid="link-to-profile" to="/profile" />
+            </div>
+          )}
+        </div>
+      </header>
     );
   }
 }
