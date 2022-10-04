@@ -20,9 +20,7 @@ class Album extends React.Component {
 
   handlegetMusics = async () => {
     const { match: { params: { id } } } = this.props;
-    console.log(this.props);
     const idAlbum = await getMusics(id);
-    console.log(idAlbum);
     this.setState({
       music: idAlbum,
       loading: false,
@@ -31,7 +29,6 @@ class Album extends React.Component {
 
   render() {
     const { music, loading } = this.state;
-    console.log(music);
     if (loading) {
       return <Loading />;
     }
