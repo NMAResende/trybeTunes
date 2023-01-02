@@ -48,10 +48,11 @@ class Search extends React.Component {
       <div data-testid="page-search">
         <Header />
         {loading ? <Loading /> : (
-          <div>
+          <div className="search">
             <label htmlFor="artist">
               Nome do artista ou banda
               <input
+                className="searchInput"
                 data-testid="search-artist-input"
                 type="text"
                 name="name"
@@ -60,6 +61,7 @@ class Search extends React.Component {
               />
             </label>
             <button
+              className="buttonPesquisar"
               type="button"
               data-testid="search-artist-button"
               disabled={ !submitted }
@@ -71,11 +73,11 @@ class Search extends React.Component {
         )}
         {resultArtist
           && (
-            <div>
+            <div className="album">
               <h2>{`Resultado de álbuns de: ${name}`}</h2>
               {album.length === 0 ? <h2>Nenhum álbum foi encontrado</h2>
                 : album.map((alb, i) => (
-                  <div key={ i }>
+                  <div key={ i } className="album2">
                     <img src={ alb.artworkUrl100 } alt={ alb.artistName } />
                     <h3>{alb.artistName}</h3>
                     <h4>

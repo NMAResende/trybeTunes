@@ -41,19 +41,22 @@ class Login extends React.Component {
     return (
       <div data-testid="page-login">
         {loading ? <Loading /> : (
-          <div>
-            Login
+          <div className="containerLogin">
+            {/* Login */}
             <label htmlFor="name">
-              Nome
+              {/* Nome */}
               <input
+                className="nameLogin"
                 type="text"
                 name="name"
                 id="name"
+                placeholder="Digite seu nome"
                 data-testid="login-name-input"
                 onChange={ this.handleChange }
               />
             </label>
             <button
+              className="buttonEntrar"
               type="button"
               data-testid="login-submit-button"
               disabled={ !submitted }

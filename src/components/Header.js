@@ -33,15 +33,18 @@ class Header extends React.Component {
           {loading ? <Loading /> : (
             <div>
               <p
+                className="namePage"
                 data-testid="header-user-name"
                 onChange={ this.handleGetUser }
               >
                 {user.name}
 
               </p>
-              <Link data-testid="link-to-search" to="/search">Pesquisar</Link>
-              <Link data-testid="link-to-favorites" to="/favorites">Favoritos</Link>
-              <Link data-testid="link-to-profile" to="/profile">Perfil</Link>
+              <div className="link">
+                <Link data-testid="link-to-search" to="/search">Pesquisar</Link>
+                <Link data-testid="link-to-favorites" to="/favorites">Favoritos</Link>
+                <Link data-testid="link-to-profile" to="/profile">Perfil</Link>
+              </div>
             </div>
           )}
         </div>
